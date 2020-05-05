@@ -1,19 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { loadAsync } from "expo-font";
+import React, { useEffect, useState } from "react";
+import { Text, View } from "react-native";
+import Home from "./screen/Home";
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+	const [isLoaded, setLoaded] = useState(false);
+	useEffect(() => {
+		loadAsync({
+			opensans: require("./assets/fonts/OpenSans-Regular.ttf"),
+			"opensans-light": require("./assets/fonts/OpenSans-Light.ttf"),
+			"opensans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+		}).then(() => setLoaded(true));
+	}, []);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	if (!isLoaded)
+		return (
+			<View>
+				<Text>Loading</Text>
+			</View>
+		);
+	return (
+		<NavigationContainer>
+			<Stack.Navigator headerMode="none" initialRouteName="Home" options={{ headerShow: false }}>
+				<Stack.Screen name="Home" component={Home} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
+}
