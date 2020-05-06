@@ -14,7 +14,19 @@ const styles = StyleSheet.create({
 	img: {
 		position: "absolute",
 		right: -20,
-		top: -10,
+		top: -5,
+		height: 84,
+		width: 84,
+		opacity: 0.4,
+		transform: [{ rotate: "18deg" }],
+	},
+	img2: {
+		position: "absolute",
+		top: -20,
+		left: -20,
+		height: 40,
+		width: 40,
+		opacity: 0.4,
 	},
 	cardText: {
 		fontFamily: "opensans-bold",
@@ -24,9 +36,9 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function CategoryCard({ color, title }) {
+export default function CategoryCard({ color, title, onPress }) {
 	return (
-		<Ripple rippleContainerBorderRadius={16} rippleCentered={true}>
+		<Ripple rippleContainerBorderRadius={16} rippleCentered={true} onPress={onPress}>
 			<BoxShadow
 				setting={{
 					width: Dimensions.get("window").width / 2 - 30,
@@ -39,8 +51,9 @@ export default function CategoryCard({ color, title }) {
 					y: 8,
 					style: { marginVertical: 1 },
 				}}>
-				<View style={{ ...styles.container, backgroundColor: `${color}b8` }}>
+				<View style={{ ...styles.container, backgroundColor: `${color}b0` }}>
 					<Image style={styles.img} source={require("../assets/pokeball.png")}></Image>
+					<Image style={styles.img2} source={require("../assets/pokeball.png")}></Image>
 					<Text style={styles.cardText}>{title}</Text>
 				</View>
 			</BoxShadow>

@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function Home() {
+export default function Home({ navigation }) {
 	const [value, onChangeText] = React.useState("");
 	const [news] = React.useState([
 		{
@@ -82,6 +82,8 @@ export default function Home() {
 		},
 	]);
 
+	const onNavigate = (title) => navigation.navigate(title);
+
 	return (
 		<ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
 			<View style={styles.header}>
@@ -100,7 +102,7 @@ export default function Home() {
 			</View>
 			<View>
 				<View style={styles.subcategory}>
-					<CategoryCard title="Pokedex" color="#159F6E" />
+					<CategoryCard title="Pokedex" color="#159F6E" onPress={() => onNavigate("Pokedex")} />
 					<CategoryCard title="Moves" color="#e4362b" />
 				</View>
 				<View style={styles.subcategory}>

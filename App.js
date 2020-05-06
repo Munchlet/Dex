@@ -4,6 +4,7 @@ import { loadAsync } from "expo-font";
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import Home from "./screen/Home";
+import Pokedex from "./screen/Pokedex";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
 		<NavigationContainer>
 			<Stack.Navigator headerMode="none" initialRouteName="Home" options={{ headerShow: false }}>
 				<Stack.Screen name="Home" component={Home} />
+				<Stack.Screen name="Pokedex" component={Pokedex} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
