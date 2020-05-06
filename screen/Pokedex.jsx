@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import BackHeader from "../component/BackHeader";
 
 const styles = StyleSheet.create({
 	container: {},
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
 export default function Pokedex() {
 	return (
 		<View style={styles.container}>
-			<Text>Hi</Text>
+			<BackHeader />
 		</View>
 	);
 }
