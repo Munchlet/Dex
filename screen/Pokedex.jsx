@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function Pokedex({ navigation: { goBack } }) {
+export default function Pokedex({ navigation }) {
 	const [pokemons, setPokemons] = React.useState([]);
 
 	React.useEffect(() => {
@@ -51,7 +51,7 @@ export default function Pokedex({ navigation: { goBack } }) {
 	return (
 		<View style={styles.container}>
 			<Image style={styles.bg} source={require("../assets/pokeball.png")}></Image>
-			<BackHeader onPress={() => goBack()} />
+			<BackHeader onPress={() => navigation.goBack()} />
 			<Text style={styles.header}>Pokedex</Text>
 			<FlatList
 				style={styles.pokemonList}

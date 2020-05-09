@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function News({ navigation: { goBack } }) {
+export default function News({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<Image style={styles.bg} source={require("../assets/pokeball.png")}></Image>
-			<BackHeader onPress={() => goBack()} />
+			<BackHeader onPress={() => navigation.goBack()} />
 			<ScrollView showsVerticalScrollIndicator={false}>
 				<View style={styles.newsContainer}>
 					<Image
