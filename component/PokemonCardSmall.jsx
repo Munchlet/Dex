@@ -48,7 +48,7 @@ export default function PokemonCardSmall({ color, id, img, name, types, url }) {
 			<View style={{ flex: 1, justifyContent: "flex-start" }}>
 				<Text style={{ ...styles.name, color: textColor }}>{name}</Text>
 				{types.map((type) => (
-					<TypeChip type={capFirst(type)} color={pokedexColor} textColor={getTextColor(color, true)} />
+					<TypeChip key={type} type={capFirst(type)} color={pokedexColor} textColor={getTextColor(color, true)} />
 				))}
 			</View>
 

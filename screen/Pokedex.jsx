@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 		height: 256,
 		width: 256,
 		opacity: 0.4,
+		zIndex: -1,
 	},
 });
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, PixelRatio, StyleSheet, Text, View } from "react-native";
+import { Image, PixelRatio, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const styles = StyleSheet.create({
 	container: {
@@ -27,16 +27,18 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function NewsCard({ title, time, img }) {
+export default function NewsCard({ title, time, img, onPress }) {
 	return (
-		<View style={styles.container}>
-			<View style={styles.textContainer}>
-				<Text numberOfLines={2} style={styles.textTitle}>
-					{title}
-				</Text>
-				<Text style={styles.textSubtitle}>{time}</Text>
+		<TouchableOpacity onPress={onPress}>
+			<View style={styles.container}>
+				<View style={styles.textContainer}>
+					<Text numberOfLines={2} style={styles.textTitle}>
+						{title}
+					</Text>
+					<Text style={styles.textSubtitle}>{time}</Text>
+				</View>
+				<Image style={styles.img} source={{ uri: img }} resizeMode="cover"></Image>
 			</View>
-			<Image style={styles.img} source={{ uri: img }} resizeMode="cover"></Image>
-		</View>
+		</TouchableOpacity>
 	);
 }

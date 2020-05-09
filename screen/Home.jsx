@@ -121,7 +121,7 @@ export default function Home({ navigation }) {
 			</View>
 			<View style={styles.newsContainer}>
 				{news.map((newsItem) => (
-					<NewsCard {...newsItem} key={newsItem.title} />
+					<NewsCard {...newsItem} key={newsItem.title} onPress={() => onNavigate("News")} />
 				))}
 			</View>
 		</ScrollView>
