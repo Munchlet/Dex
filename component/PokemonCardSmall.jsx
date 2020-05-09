@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function PokemonCardSmall({ color, id, img, name, types, url }) {
+export default React.memo(function PokemonCardSmall({ color, id, img, name, types, url }) {
 	const [pokedexColor] = React.useState(getPokedexColor(color));
 	const [textColor] = React.useState(getTextColor(color));
 
@@ -55,4 +55,4 @@ export default function PokemonCardSmall({ color, id, img, name, types, url }) {
 			<Image style={styles.img} source={{ uri: img }} />
 		</View>
 	);
-}
+});
