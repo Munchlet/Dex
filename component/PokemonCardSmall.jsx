@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, PixelRatio, StyleSheet, Text, View } from "react-native";
+import Ripple from "react-native-material-ripple";
 import { capFirst, getPokedexColor, getTextColor } from "../lib/Helper";
 import TypeChip from "./TypeChip";
 
@@ -38,12 +39,12 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default React.memo(function PokemonCardSmall({ color, id, img, name, types, url }) {
+export default React.memo(function PokemonCardSmall({ color, id, img, name, types, url, onClick }) {
 	const [pokedexColor] = React.useState(getPokedexColor(color));
 	const [textColor] = React.useState(getTextColor(color));
 
 	return (
-		<View style={{ ...styles.container, backgroundColor: pokedexColor }}>
+		<Ripple style={{ ...styles.container, backgroundColor: pokedexColor }} rippleContainerBorderRadius={16} onPress={onClick}>
 			<Image style={styles.bg} source={require("../assets/pokeball.png")}></Image>
 			<View style={{ flex: 1, justifyContent: "flex-start" }}>
 				<Text style={{ ...styles.name, color: textColor }}>{name}</Text>
@@ -53,6 +54,6 @@ export default React.memo(function PokemonCardSmall({ color, id, img, name, type
 			</View>
 
 			<Image style={styles.img} source={{ uri: img }} />
-		</View>
+		</Ripple>
 	);
 });

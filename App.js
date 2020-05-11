@@ -6,6 +6,7 @@ import { Text, View } from "react-native";
 import Home from "./screen/Home";
 import News from "./screen/News";
 import Pokedex from "./screen/Pokedex";
+import PokemonInfo from "./screen/PokemonInfo";
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ export default function App() {
 				<Stack.Screen name="Home" component={Home} />
 				<Stack.Screen name="Pokedex" component={Pokedex} />
 				<Stack.Screen name="News" component={News} />
+				<Stack.Screen name="PokemonInfo" component={PokemonInfo} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

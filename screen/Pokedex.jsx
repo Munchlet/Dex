@@ -34,13 +34,17 @@ export default function Pokedex({ navigation }) {
 
 	React.useEffect(() => {
 		async function fetchPokemon() {
-			const result = await fetch("https://pastebin.com/raw/vvV8LPcc");
+			const result = await fetch("https://pastebin.com/raw/PZjn51nW");
 			const data = await result.json();
 			setPokemons(data);
 		}
 
 		fetchPokemon();
 	}, []);
+
+	const onPokemonClick = (item) => {
+		navigation.navigate("PokemonInfo", item);
+	};
 
 	if (pokemons.length < 1)
 		return (
@@ -59,7 +63,9 @@ export default function Pokedex({ navigation }) {
 				numColumns={2}
 				initialNumToRender={20}
 				keyExtractor={(item) => item.id}
-				renderItem={({ item }) => <PokemonCardSmall {...item} />}
+				renderItem={({ item }) => {
+					return <PokemonCardSmall {...item} onClick={() => onPokemonClick(item)} />;
+				}}
 			/>
 		</View>
 	);
