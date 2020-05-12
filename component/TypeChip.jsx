@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function TypeChip({ type, color, textColor }) {
+export default function TypeChip({ type, color, textColor, style = {} }) {
 	return (
-		<View style={{ ...styles.container, backgroundColor: Color(color).lighten(0.3).hex() }}>
+		<View style={{ ...styles.container, backgroundColor: Color(color).lighten(0.3).hex(), ...style }}>
 			<Text style={{ ...styles.type, color: textColor }}>{type}</Text>
 		</View>
 	);

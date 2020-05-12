@@ -34,7 +34,7 @@ export default function Pokedex({ navigation }) {
 
 	React.useEffect(() => {
 		async function fetchPokemon() {
-			const result = await fetch("https://pastebin.com/raw/PZjn51nW");
+			const result = await fetch("https://pastebin.com/raw/70SV49Z6");
 			const data = await result.json();
 			setPokemons(data);
 		}

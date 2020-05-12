@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function BackHeader({ onPress }) {
+export default function BackHeader({ onPress, color = "#2f2f2f" }) {
 	return (
 		<View style={styles.container}>
 			<TouchableOpacity onPress={onPress}>
-				<Ionicons name="md-arrow-back" size={24} color="#2f2f2f" />
+				<Ionicons name="md-arrow-back" size={24} color={color} />
 			</TouchableOpacity>
-			<Ionicons name="md-menu" size={24} color="#2f2f2f" />
+			<Ionicons name="md-menu" size={24} color={color} />
 		</View>
 	);
 }
